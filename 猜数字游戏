@@ -1,0 +1,33 @@
+#include<stdlib.h>
+#include<time.h>
+void menu()//菜单
+{
+	printf("**************************\n");
+	printf("***** 1.play  0.exit *****\n");
+	printf("**************************\n");
+}
+void game()//游戏函数体
+{
+	int ret = rand() % 100 + 1;
+//rand()随机数产生范围在ox7fff内，这里取100模是为了产生随机数为0-99，加一变成1-100
+	printf("猜数字游戏开始\n");
+	int a;
+	int i = 0;
+	while (1)
+	{
+		printf("请猜数字（范围1-100）：");
+		scanf("%d", &a);
+		system("cls");//清空屏幕
+		i++;
+		if (a > ret)
+			printf("猜大了\n");
+		else if (a < ret)
+			printf("猜小了\n");
+		else
+		{
+			printf("恭喜你！猜对了！数字为%d！\n", ret);
+			printf("您一共猜了%d次！\n", i);
+			break;
+		}
+	}
+}
